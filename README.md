@@ -1,2 +1,0 @@
-# spendsmart
-Spendsmart app

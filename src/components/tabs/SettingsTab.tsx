@@ -87,7 +87,7 @@ export function SettingsTab({ categories, onCategoryChange }: Props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ categoryId: catId, name }),
     });
-    setNewSubName(prev => ({ ...prev, [catId]: "" }));
+    setNewSubName((prev: Record<string, string>) => ({ ...prev, [catId]: "" }));
     setAddingSubFor(null);
     onCategoryChange();
   };
@@ -259,7 +259,7 @@ export function SettingsTab({ categories, onCategoryChange }: Props) {
                     <div className="flex gap-2 mt-1">
                       <input
                         value={newSubName[cat.id] || ""}
-                        onChange={e => setNewSubName(prev => ({ ...prev, [cat.id]: e.target.value }))}
+                        onChange={e => setNewSubName((prev: Record<string, string>) => ({ ...prev, [cat.id]: e.target.value }))}
                         placeholder="Sub-category name"
                         className="flex-1 px-3 py-1.5 rounded-lg text-xs focus:outline-none"
                         style={{ background: "var(--surface-2)", color: "var(--text)", border: "2px solid var(--accent)" }}

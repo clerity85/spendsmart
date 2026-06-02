@@ -38,7 +38,7 @@ export function HomeTab({ wallets, categories, onDataChange }: Props) {
   const { stats, loading: statsLoading } = useStats(statsParams);
 
   const goMonth = (dir: number) => {
-    setMonth(prev => {
+    setMonth((prev: { year: number; month: number }) => {
       let m = prev.month + dir;
       let y = prev.year;
       if (m < 0) { m = 11; y--; }

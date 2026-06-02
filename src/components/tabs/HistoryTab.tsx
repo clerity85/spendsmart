@@ -29,13 +29,11 @@ export function HistoryTab({ wallets, categories, onDataChange }: Props) {
   const { transactions, loading, updateTransaction, deleteTransaction } = useTransactions(txParams);
 
   const goMonth = (dir: number) => {
-    setHistoryMonth(prev => {
-      let m = prev.month + dir;
-      let y = prev.year;
-      if (m < 0) { m = 11; y--; }
-      if (m > 11) { m = 0; y++; }
-      return { year: y, month: m };
-    });
+    let m = historyMonth.month + dir;
+    let y = historyMonth.year;
+    if (m < 0) { m = 11; y--; }
+    if (m > 11) { m = 0; y++; }
+    setHistoryMonth({ year: y, month: m });
   };
 
   const handleToggleFav = async (id: string, val: boolean) => {
